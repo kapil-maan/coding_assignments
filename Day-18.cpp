@@ -6,46 +6,101 @@
 // Demonstrate the usage of structured bindings to unpack the tuple returned by getDetails().
 
 
-
+/*
+// By the structure binding :-
 #include <iostream>
-#include <string>
 #include <tuple>
-using namespace std;
+#include <string>
 
-class Person{
-    public:
-    string firstName;
-    string lastName;
+class Person {
+private:
+    std::string firstName;
+    std::string lastName;
     int age;
 
-    Person(const string &fn, const string &ln,int a)
-        :firstName(fn), lastName(ln), age(a)
-    {}
+public:
+    // Constructor
+    Person(const std::string& firstName, const std::string& lastName, int age)
+        : firstName(firstName), lastName(lastName), age(age) {}
 
-    string getFullName() {
-        return firstName +" " + lastName;
+    // Method to get the full name
+    std::string getFullName() const {
+        return firstName + " " + lastName;
     }
 
-    // method return tuple
-    tuple<string,string,int>  getDetails() const{
-        return make_tuple(firstName,lastName,age) ;
+    // Method to get the details as a tuple
+    std::tuple<std::string, std::string, int> getDetails() const {
+        return std::make_tuple(firstName, lastName, age);
     }
-
 };
 
-int main(){
-    //object
-    Person p1("Akanksh","Rakesh",10);
+int main() {
+    // Create a Person object
+    Person person("John", "Doe", 30);
 
-    // get full name
-    cout<<"full name :- "<<p1.getFullName();
+    // Get and print the full name
+    std::cout << "Full Name: " << person.getFullName() << std::endl;
 
-    // structured binding :-
-    auto [fn,ln,age] = p1.getDetails();
-    cout<<"First Name :- "<<fn<<endl;
-    cout<<"last Name :- "<<ln<<endl;
-    cout<<"age :- "<<age<<endl;
+    // Get the details and unpack the tuple
+    auto [firstName, lastName, age] = person.getDetails();
+
+    // Print the details
+    std::cout << "First Name: " << firstName << std::endl;
+    std::cout << "Last Name: " << lastName << std::endl;
+    std::cout << "Age: " << age << std::endl;
 
     return 0;
 }
- 
+*/
+
+
+
+// without structure binding :-
+#include <iostream>
+#include <tuple>
+#include <string>
+
+class Person {
+private:
+    std::string firstName;
+    std::string lastName;
+    int age;
+
+public:
+    // Constructor
+    Person(const std::string& firstName, const std::string& lastName, int age)
+        : firstName(firstName), lastName(lastName), age(age) {}
+
+    // Method to get the full name
+    std::string getFullName() const {
+        return firstName + " " + lastName;
+    }
+
+    // Method to get the details as a tuple
+    std::tuple<std::string, std::string, int> getDetails() const {
+        return std::make_tuple(firstName, lastName, age);
+    }
+};
+
+int main() {
+    // Create a Person object
+    Person person("John", "Doe", 30);
+
+    // Get and print the full name
+    std::cout << "Full Name: " << person.getFullName() << std::endl;
+
+    // Get the details as a tuple
+    std::tuple<std::string, std::string, int> details = person.getDetails();
+
+    // Access the elements of the tuple using std::get
+    std::string firstName = std::get<0>(details);
+    std::string lastName = std::get<1>(details);
+    int age = std::get<2>(details);
+
+    // Print the details
+    std::cout << "First Name: " << firstName << std::endl;
+    std::cout << "Last Name: " << lastName << std::endl;
+    std::cout << "Age: " << age << std::endl;
+
+    return 0;
+}
