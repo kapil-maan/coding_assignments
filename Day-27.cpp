@@ -10,7 +10,7 @@
 // expression will be abcd^e-fgh*+^*+i- . Note :- Take all the required value from user.
 
 
-/*
+
 #include <iostream>
 #include <stack>
 #include <string>
@@ -72,7 +72,7 @@ int main() {
 
     return 0;
 }
-*/
+
 
 
 // To convert an infix expression to a prefix expression in C++. The algorithm involves the following steps:
