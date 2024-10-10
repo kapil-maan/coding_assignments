@@ -35,7 +35,7 @@
 // Explanation :- In the first test case, initially 𝑎=[1,2]. Turtle can only choose 𝑖=1. Then he will set 𝑎1 to max(𝑎1,𝑎2)=2 and remove 𝑎2. The sequence 𝑎 becomes [2]. Then the length of the sequence becomes 1, and the game will end. The value of 𝑎1 is 2, so you should output 2.
 
 
-
+ 
 #include <iostream>
 #include <vector>
 #include <algorithm>
