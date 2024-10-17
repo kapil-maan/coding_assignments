@@ -62,7 +62,7 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    int n; 
+    int n;  
     cin >> n;
     cout << sumOfDigits(n) << endl;
     return 0;
