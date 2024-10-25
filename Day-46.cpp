@@ -101,7 +101,7 @@ int main() {
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct Node { 
     int data;
     Node* left;
     Node* right;
